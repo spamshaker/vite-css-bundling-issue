@@ -2,9 +2,9 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import { loadTheme } from './themes/theme-loader';
+import { loadTheme } from './theme-loader.ts';
 
-await loadTheme('dark');
+await loadTheme(new URLSearchParams(location.search).get('theme') || 'light');
 
 function App() {
   const [count, setCount] = useState(0)
